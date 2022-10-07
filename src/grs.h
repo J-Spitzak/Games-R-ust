@@ -6,10 +6,37 @@
 #include <FL/Fl_Double_Window.H>
 #include <stdio.h>
 #include <FL/Fl_Box.H>
-#include "grs-window.cxx"
 
 #include <config.h>
 #include <FL/Fl.H>
 #include <FL/Fl_Window.H>
 #include <FL/math.h>
+
+enum ScreenType {
+    grs_FLScreen, 
+    grs_GLScreen,
+    grs_FLGLScreen
+};
+
+enum grsColors {
+    grs_RED,
+    grs_BLUE,
+    grs_GRAY,
+    grs_WHITE,
+    grs_BLACK
+};
+
+class grsWindow {
+
+    private:
+
+    Fl_Window *windowFL;
+
+    public:
+
+    grsWindow(int xscale, int yscale, ScreenType screenType);
+
+    virtual int draw();
+};
+
 #endif
