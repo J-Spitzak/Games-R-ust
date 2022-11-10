@@ -3,9 +3,9 @@
 
 int main(){
   
-  grsWindow myWindow = grsWindow(800,500, ScreenType::grs_GLScreen);
+  grs_GL_Window myWindow = grs_GL_Window(800,500, grsColors::grs_WHITE);
 
-  myWindow.grs_GLScreen->bkgColor = grsColors::grs_WHITE;
+  //myWindow.grs_GLScreen->bkgColor = grsColors::grs_WHITE;
 
   
 

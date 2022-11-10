@@ -13,13 +13,13 @@
 #include <FL/Fl_Gl_Window.H>
 
 
-
+/*
 
 enum ScreenType {
     grs_FLScreen, 
     grs_GLScreen,
     grs_FLGLScreen
-};
+}; */
 
 enum grsColors {
     grs_RED,
@@ -49,7 +49,7 @@ class grs_GL_Screen : public Fl_Gl_Window {
     grs_GL_Screen(int X, int Y, int W, int H, const char *L = 0) : Fl_Gl_Window(X, Y, W, H, L) {};
 };
 
-class grsWindow {
+class grs_GL_Window {
 
     private:
 
@@ -59,7 +59,7 @@ class grsWindow {
 
     grs_GL_Screen *grs_GLScreen;
 
-    grsWindow(int xscale, int yscale, ScreenType screenType);
+    grs_GL_Window(int xscale, int yscale, grsColors background_color);
 
     virtual int draw();
 };
