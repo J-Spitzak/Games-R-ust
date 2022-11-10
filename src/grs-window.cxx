@@ -1,46 +1,47 @@
 #include "grs.h"
 
 
-class grs_GL_Window : public Fl_Gl_Window {
-    void draw();
-    public:
-    grs_GL_Window(int X, int Y, int W, int H, const char *L = 0)
-    : Fl_Gl_Window(X, Y, W, H, L) {};
-};
 
-void grs_GL_Window::draw() {
+
+void grs_GL_Screen::draw() {
         if (!valid()) {
             valid(1);
             glLoadIdentity();
             glViewport(0,0,pixel_w(),pixel_h());
         }
-        glClearColor(0.0,0.0,0.0,1.0);
+        if (this->bkgColor == grsColors::grs_BLACK){
+            glClearColor(0.0,0.0,0.0,1.0);
+        }
+        else if (this->bkgColor == grsColors::grs_WHITE){
+            glClearColor(1.0,1.0,1.0,1.0);
+        }
         glClear(GL_COLOR_BUFFER_BIT);
         glEnd();
-        printf("inside draw function \n");
 }
 
 
 
 
 
-grsWindow::grsWindow(int xscale, int yscale, ScreenType screenType){
+grsWindow::grsWindow(int xscale, int yscale, ScreenType screenType = ScreenType::grs_GLScreen){
+
     this->windowFL = new Fl_Window(xscale, yscale);
+
     if (screenType == ScreenType::grs_GLScreen){
 
-        
+        this->grs_GLScreen = new grs_GL_Screen(0,0,xscale,yscale);
 
-        this->windowFL->add( new grs_GL_Window(0,0,xscale,yscale) );
+        this->windowFL->add( this->grs_GLScreen );
 
 
     }
-        //grs_GL_Window MyWindow(0,0,xscale,yscale);
+        //grs_GL_Screen MyWindow(0,0,xscale,yscale);
         this->windowFL->end();
         this->windowFL->show();
         // MyWindow.show();
         
 };
 
-// int grsWindow::draw() {
-//     //return Fl::run();
-// };
+int grsWindow::draw() {
+    return Fl::run();
+};

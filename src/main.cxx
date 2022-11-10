@@ -1,13 +1,11 @@
 #include "grs.h"
 
 
-
-grsWindow myWindow = grsWindow(500,500,ScreenType::grs_GLScreen);
-
-
 int main(){
-  //return myWindow.draw();
-    return Fl::run();
+  
+  grsWindow myWindow = grsWindow(800,500, ScreenType::grs_GLScreen);
+  myWindow.grs_GLScreen->bkgColor = grsColors::grs_WHITE;
+  return myWindow.draw();
 
 }
 
