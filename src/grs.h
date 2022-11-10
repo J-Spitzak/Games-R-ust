@@ -4,6 +4,7 @@
 #include <FL/Fl_Double_Window.H>
 #include <FL/Fl_Box.H>
 
+//#include "vector.h"
 #include <config.h>
 #include <FL/Fl.H>
 #include <FL/Fl_Window.H>
@@ -28,14 +29,24 @@ enum grsColors {
     grs_BLACK
 };
 
+//#include "grs-GL-drawings.h"
+
+//#include "grs-objects.h"
+
 class grs_GL_Screen : public Fl_Gl_Window {
+
     void draw();
+    
     public:
+
+    //vector<grs_Object>;
+
+    void draw_obj(); //function will add a grs_object to a list
+    //to have their draw function utilized later
 
     grsColors bkgColor;
 
-    grs_GL_Screen(int X, int Y, int W, int H, const char *L = 0)
-    : Fl_Gl_Window(X, Y, W, H, L) {};
+    grs_GL_Screen(int X, int Y, int W, int H, const char *L = 0) : Fl_Gl_Window(X, Y, W, H, L) {};
 };
 
 class grsWindow {
