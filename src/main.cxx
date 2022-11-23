@@ -1,5 +1,7 @@
-#include "grs.h"
-
+#include "include.h"
+#include "grs-window.h"
+#include "grs-GL-drawing.h"
+#include "grs-objects.h"
 
 int main(){
   
