@@ -6,7 +6,6 @@ class grs_GL_Screen : public Fl_Gl_Window {
     
     public:
 
-    //vector<grs_Object>;
 
     void draw_obj(); //function will add a grs_object to a list
     //to have their draw function utilized later

@@ -32,10 +32,9 @@ grs_GL_Window::grs_GL_Window(int xscale, int yscale, grsColors background_color)
     this->grs_GLScreen->bkgColor = background_color;
 
     this->windowFL->add( this->grs_GLScreen );
-    //grs_GL_Screen MyWindow(0,0,xscale,yscale);
+
     this->windowFL->end();
     this->windowFL->show();
-    // MyWindow.show();
         
 };
 
